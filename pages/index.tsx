@@ -27,8 +27,8 @@ const Home = () => {
     <div>
       <div className="mt-6 flex flex-col items-center justify-center md:items-start md:justify-start">
         <div className="flex flex-col w-96 md:ml-12">
-          {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
           <Search />
+          {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
         </div>
         <div className="mt-3 flex flex-row flex-wrap items-center justify-center gap-3 md:ml-12 md:items-start md:justify-start">
           {movies
