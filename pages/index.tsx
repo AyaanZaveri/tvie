@@ -25,11 +25,12 @@ const Home = () => {
 
   return (
     <div>
-      <div className="mt-3 flex flex-col items-center justify-center md:items-start md:justify-start">
-        <div className='w-96 md:ml-12'>
+      <div className="mt-6 flex flex-col items-center justify-center md:items-start md:justify-start">
+        <div className="flex flex-col w-96 md:ml-12">
+          {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
           <Search />
         </div>
-        <div className="mt-3 flex flex-row flex-wrap items-center justify-center md:items-start md:justify-start gap-3 md:ml-12">
+        <div className="mt-3 flex flex-row flex-wrap items-center justify-center gap-3 md:ml-12 md:items-start md:justify-start">
           {movies
             ? movies.map((movie: any) => (
                 <Movies key={movie.id} movie={movie} />
