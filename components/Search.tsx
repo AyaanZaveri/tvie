@@ -8,7 +8,7 @@ interface SearchProps {
 
 const Search = ({ handleSearch, query, setQuery }: SearchProps) => {
   return (
-    <div className="flex w-screen flex-row justify-start bg-neutral-800 p-5 font-bold shadow-xl">
+    <div className="flex flex-row justify-start bg-neutral-800 p-5 font-bold shadow-xl">
       <div className='ml-8'>
         <form className="w-96" onSubmit={handleSearch}>
           <input
