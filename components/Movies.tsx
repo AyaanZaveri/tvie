@@ -12,7 +12,7 @@ interface MovieProps {
   id: number
 }
 
-const Movies = ({ movie, filter }: { movie: MovieProps; filter: boolean }) => {
+const Movies = ({ movie, filter }: { movie: MovieProps; filter: string }) => {
   const [favorited, setFavorited] = useState<boolean>(false)
 
   const longDate = (date: any) => {
@@ -30,7 +30,7 @@ const Movies = ({ movie, filter }: { movie: MovieProps; filter: boolean }) => {
 
   return (
     <div
-      className={`${filter ? `${favorited ? "block" : "hidden"}` : "block"} group relative rounded-lg shadow-2xl backdrop-brightness-0`}
+      className={`group relative rounded-lg shadow-2xl backdrop-brightness-0`}
     >
       <div>
         <img

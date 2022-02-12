@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import Movies from '../components/Movies'
 import Search from '../components/Search'
+import { HiChevronDown } from 'react-icons/hi'
 
 const Home = () => {
   const [movies, setMovies] = useState<any>()
   const [query, setQuery] = useState<string>('')
-  const [filter, setFilter] = useState<boolean>(false)
+  const [filter, setFilter] = useState<string>('')
 
   console.log(filter)
 
@@ -40,17 +41,24 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="pb-12">
       <Search handleSearch={handleSearch} query={query} setQuery={setQuery} />
       <div className="mt-24 flex flex-col items-center justify-center md:items-start md:justify-start">
         {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
         <h1 className="text-4xl font-bold text-slate-100 md:ml-12">Movies</h1>
-        <div className='inline-flex gap-2 items-center text-white'>
-          <span>Show Favorites</span>
-          <input
-            type="checkbox"
-            onChange={() => setFilter(!filter)}
-          />
+        <div className="mt-2 inline-flex items-center gap-2 text-white">
+        <select
+          className="appearance-none bg-white shadow-sm text-slate-800 p-2 focus:border-slate-500 rounded-lg outline-none"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        >
+          <option value="none">None</option>
+          <option value="favorites">Favorites</option>
+          <option value="date">Date</option>
+          <option value="name">Name</option>
+          <option value="rating">Rating</option>
+          <option value="language">Language</option>
+        </select>
         </div>
       </div>
       <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-5 md:ml-12 md:items-start md:justify-start">
