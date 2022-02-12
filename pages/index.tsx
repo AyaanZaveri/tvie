@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import Movies from '../components/Movies'
+import Search from '../components/Search'
 
 const Home = () => {
   const [movies, setMovies] = useState<any>()
@@ -24,10 +25,17 @@ const Home = () => {
 
   return (
     <div>
-      <div className='flex flex-row flex-wrap gap-3'>
-        {movies
-          ? movies.map((movie: any) => <Movies key={movie.id} movie={movie} />)
-          : null}
+      <div className="mt-3 flex flex-col items-center justify-center md:items-start md:justify-start">
+        <div className='w-96 md:ml-12'>
+          <Search />
+        </div>
+        <div className="mt-3 flex flex-row flex-wrap items-center justify-center md:items-start md:justify-start gap-3 md:ml-12">
+          {movies
+            ? movies.map((movie: any) => (
+                <Movies key={movie.id} movie={movie} />
+              ))
+            : null}
+        </div>
       </div>
     </div>
   )
