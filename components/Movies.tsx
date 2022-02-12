@@ -42,7 +42,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
         onClick={() => setFavorited(!favorited)}
         className={`absolute top-0 right-0 m-1 rounded-lg p-2 ${
           favorited ? 'text-amber-400' : 'text-slate-100'
-        } backdrop-blur-lg delay-150 hover:cursor-pointer hover:text-amber-400 transition-colors`}
+        } backdrop-blur delay-150 hover:cursor-pointer hover:text-amber-400 transition-colors`}
       >
         <HiStar />
       </div>

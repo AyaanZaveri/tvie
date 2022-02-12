@@ -39,12 +39,10 @@ const Home = () => {
   return (
     <div>
       <Search handleSearch={handleSearch} query={query} setQuery={setQuery} />
-      <div className="mt-6 flex flex-col items-center justify-center md:items-start md:justify-start">
+      <div className="mt-24 flex flex-col items-center justify-center md:items-start md:justify-start">
         {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
+      <h1 className="md:ml-12 text-4xl font-bold text-slate-100">Movies</h1>
       </div>
-      {!query ? (
-        <h1 className="ml-12 text-4xl font-bold text-slate-100">Movies</h1>
-      ) : null}
       <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-5 md:ml-12 md:items-start md:justify-start">
         {movies
           ? movies.map((movie: any) => <Movies key={movie.id} movie={movie} />)
