@@ -46,20 +46,6 @@ const Home = () => {
       <div className="mt-24 flex flex-col items-center justify-center md:items-start md:justify-start">
         {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
         <h1 className="text-4xl font-bold text-slate-100 md:ml-12">Movies</h1>
-        <div className="mt-2 inline-flex items-center gap-2 text-white">
-        <select
-          className="appearance-none bg-white shadow-sm text-slate-800 p-2 focus:border-slate-500 rounded-lg outline-none"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        >
-          <option value="none">None</option>
-          <option value="favorites">Favorites</option>
-          <option value="date">Date</option>
-          <option value="name">Name</option>
-          <option value="rating">Rating</option>
-          <option value="language">Language</option>
-        </select>
-        </div>
       </div>
       <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-5 md:ml-12 md:items-start md:justify-start">
         {movies
