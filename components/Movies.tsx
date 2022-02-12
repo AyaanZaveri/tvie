@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import moment from 'moment'
-import { AiFillStar } from 'react-icons/ai'
+import { HiStar } from 'react-icons/hi'
 interface MovieProps {
   title: string
   backdrop_path: string
   original_language: string
   release_date: string
   vote_average: number
+  id: number
 }
 
 const Movies = ({ movie }: { movie: MovieProps }) => {
-
   const [favorited, setFavorited] = useState<boolean>(false)
 
   const longDate = (date: any) => {
@@ -22,8 +22,12 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
     return `${month} ${day}, ${year}`
   }
 
+  favorited
+    ? console.log('Favorited: ' + movie.id)
+    : console.log('Unfavorited: ' + movie.id)
+
   return (
-    <div className="relative rounded-lg shadow-2xl backdrop-brightness-0 group">
+    <div className="group relative rounded-lg shadow-2xl backdrop-brightness-0">
       <img
         className="w-96 rounded-lg shadow-sm"
         src={
@@ -32,14 +36,22 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
             : 'https://via.placeholder.com/1280x720'
         }
       />
-      <div className={`absolute top-0 right-0 p-2 m-1 rounded-lg ${favorited ? 'text-amber-500' : 'text-slate-100'} backdrop-blur-lg hover:cursor-pointer hover:text-amber-400 transition-colors delay-150`}>
-        <AiFillStar />
+      <div
+        onClick={() => setFavorited(!favorited)}
+        className={`absolute top-0 right-0 m-1 rounded-lg p-2 ${
+          favorited ? 'text-amber-400' : 'text-slate-100'
+        } backdrop-blur-lg transition-colors delay-150 hover:cursor-pointer hover:text-amber-400`}
+      >
+        <HiStar />
       </div>
-      <div className="absolute bottom-0 left-0 flex w-full flex-col rounded-lg bg-slate-50 bg-opacity-10 py-3 px-4 group-hover:py-4 shadow-2xl backdrop-blur transition-all">
-        <span className="font-medium text-slate-200">{movie.title}</span>
-        <span className="text-sm font-light text-slate-300">
-          {longDate(movie.release_date)}
-        </span>
+      <div className="absolute bottom-0 left-0 flex w-full flex-row justify-between rounded-lg bg-slate-50 bg-opacity-10 py-3 px-4 shadow-2xl backdrop-blur transition-all group-hover:py-4">
+        <div className="flex flex-col">
+          <span className="font-medium text-slate-200">{movie.title}</span>
+          <span className="text-sm font-light text-slate-300">
+            {longDate(movie.release_date)}
+          </span>
+        </div>
+        <span className='px-1.5 text-slate-200 ring-1 ring-slate-300 rounded-sm h-min text-sm'>{movie.vote_average}</span>
       </div>
     </div>
   )
