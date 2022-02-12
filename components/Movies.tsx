@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import { HiStar } from 'react-icons/hi'
+import CountUp from 'react-countup'
+
 interface MovieProps {
   title: string
   backdrop_path: string
@@ -51,7 +53,9 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
             {longDate(movie.release_date)}
           </span>
         </div>
-        <span className='px-1.5 text-slate-200 ring-1 ring-slate-300 rounded-sm h-min text-sm'>{movie.vote_average}</span>
+        <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
+          <CountUp end={movie.vote_average} duration={1} decimals={1} />
+        </span>
       </div>
     </div>
   )

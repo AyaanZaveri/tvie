@@ -7,9 +7,9 @@ const Home = () => {
   const [movies, setMovies] = useState<any>()
   const [query, setQuery] = useState<string>('')
 
-  const POPULAR_API =
+  const POPULAR_MOVIE_API =
     'https://api.themoviedb.org/4/discover/movie?api_key=cbf7e1167c533eaa4ed56af5cd8aeb85&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate'
-  const SEARCH_API =
+  const SEARCH_MOVIE_API =
     'https://api.themoviedb.org/4/search/movie?api_key=cbf7e1167c533eaa4ed56af5cd8aeb85&query='
 
   const getMovies = (API: string) => {
@@ -19,7 +19,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getMovies(POPULAR_API)
+    getMovies(POPULAR_MOVIE_API)
     console.log(movies)
   }, [])
 
@@ -30,9 +30,9 @@ const Home = () => {
     console.log(movies)
 
     if (query) {
-      getMovies(SEARCH_API + query)
+      getMovies(SEARCH_MOVIE_API + query)
     } else {
-      getMovies(POPULAR_API)
+      getMovies(POPULAR_MOVIE_API)
     }
   }
 

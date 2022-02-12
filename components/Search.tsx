@@ -13,7 +13,7 @@ const Search = ({ handleSearch, query, setQuery }: SearchProps) => {
         <form className="w-96" onSubmit={handleSearch}>
           <input
             type="text"
-            className="block w-full py-2 px-4 rounded-md border-neutral-300 shadow-sm focus:ring focus:ring-amber-400 outline-none"
+            className="block w-full py-2 px-4 rounded-md border-neutral-300 shadow-sm focus:ring-2 focus:ring-amber-400 outline-none"
             placeholder="Search..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
