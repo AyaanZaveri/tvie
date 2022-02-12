@@ -18,12 +18,6 @@ const Home = () => {
       .then((response: AxiosResponse) => setMovies(response.data.results))
   }
 
-  const searchMovies = (API: string) => {
-    axios
-      .get(API)
-      .then((response: AxiosResponse) => setMovies(response.data.results))
-  }
-
   useEffect(() => {
     getMovies(POPULAR_API)
     console.log(movies)
