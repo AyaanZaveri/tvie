@@ -13,7 +13,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
     <div className="relative shadow-md rounded-lg backdrop-brightness-0">
       <img
         className="w-96 rounded-lg shadow-sm"
-        src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+        src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : 'https://via.placeholder.com/1280x720'}
       />
       <div className="absolute bottom-0 left-0 flex w-full flex-col rounded-b-lg bg-slate-50 bg-opacity-10 shadow-2xl py-3 px-4 backdrop-blur">
         <span className="font-medium text-slate-200">{movie.title}</span>
