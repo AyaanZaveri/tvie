@@ -31,7 +31,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
   return (
     <div className="group relative rounded-lg shadow-2xl backdrop-brightness-0">
       <img
-        className="w-96 rounded-lg shadow-sm"
+        className="w-80 rounded-lg shadow-sm"
         src={
           movie.backdrop_path
             ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
@@ -42,7 +42,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
         onClick={() => setFavorited(!favorited)}
         className={`absolute top-0 right-0 m-1 rounded-lg p-2 ${
           favorited ? 'text-amber-400' : 'text-slate-100'
-        } backdrop-blur-lg transition-colors delay-150 hover:cursor-pointer hover:text-amber-400`}
+        } backdrop-blur-lg delay-150 hover:cursor-pointer hover:text-amber-400 transition-colors`}
       >
         <HiStar />
       </div>
@@ -53,6 +53,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
             {longDate(movie.release_date)}
           </span>
         </div>
+
         <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
           <CountUp end={movie.vote_average} duration={1} decimals={1} />
         </span>
