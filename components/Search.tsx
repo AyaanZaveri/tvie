@@ -8,8 +8,8 @@ interface SearchProps {
 
 const Search = ({ handleSearch, query, setQuery }: SearchProps) => {
   return (
-    <div className="fixed top-0 z-20 flex w-8/12 flex-row items-center justify-center bg-neutral-800 py-5 font-bold md:justify-start">
-      <div className="w-9/12 md:ml-12">
+    <div className="fixed top-0 z-20 flex w-full flex-row items-center justify-center bg-neutral-800 py-5 font-bold shadow-xl md:justify-start">
+      <div className="w-80 md:w-6/12 md:ml-12">
         <form className="" onSubmit={handleSearch}>
           <input
             type="text"

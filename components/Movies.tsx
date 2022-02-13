@@ -34,7 +34,7 @@ const Movies = ({ movie, filter }: { movie: MovieProps; filter: string }) => {
     >
       <div>
         <img
-          className="w-80 rounded-lg shadow-sm"
+          className="w-80 rounded-lg brightness-110 shadow-sm group-hover:cursor-pointer group-hover:brightness-125 transition-all"
           src={
             movie.backdrop_path
               ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
