@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import Movies from '../components/Movies'
 import Search from '../components/Search'
-import { HiChevronDown } from 'react-icons/hi'
 import Sidebar from '../components/Sidebar'
+import { CgSpinner } from 'react-icons/cg'
 
 const Home = () => {
   const [movies, setMovies] = useState<any>()
@@ -42,22 +42,40 @@ const Home = () => {
   }
 
   return (
-    <div className="flex flex-row pb-12">
-      {/* <Sidebar /> */}
-      <div className='flex flex-col'>
-        <div className="mt-24 flex flex-col items-center justify-center md:items-start md:justify-start">
-        <Search handleSearch={handleSearch} query={query} setQuery={setQuery} />
-          {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
-          <h1 className="text-4xl font-bold text-slate-100 md:ml-12">Movies</h1>
+    <div>
+      {movies ? (
+        <div className="flex flex-row pb-12">
+          {/* <Sidebar /> */}
+          <div className="flex flex-col">
+            <div className="mt-24 flex flex-col items-center justify-center md:items-start md:justify-start">
+              <Search
+                handleSearch={handleSearch}
+                query={query}
+                setQuery={setQuery}
+              />
+              {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
+              <h1 className="text-4xl font-bold text-slate-100 md:ml-12">
+                Movies
+              </h1>
+            </div>
+            <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-5 md:ml-12 md:items-start md:justify-start">
+              {movies
+                ? movies.map((movie: any) => (
+                    <Movies key={movie.id} movie={movie} />
+                  ))
+                : null}
+            </div>
+          </div>
         </div>
-        <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-5 md:ml-12 md:items-start md:justify-start">
-          {movies
-            ? movies.map((movie: any) => (
-                <Movies key={movie.id} movie={movie} />
-              ))
-            : null}
+      ) : (
+        <div className="flex h-screen">
+          <div className="m-auto">
+            <div>
+              <CgSpinner className="h-8 w-8 animate-spin text-gray-200 dark:text-gray-600" />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
