@@ -53,7 +53,7 @@ const Home = () => {
         <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-5 md:ml-12 md:items-start md:justify-start">
           {movies
             ? movies.map((movie: any) => (
-                <Movies key={movie.id} movie={movie} filter={filter} />
+                <Movies key={movie.id} movie={movie} />
               ))
             : null}
         </div>

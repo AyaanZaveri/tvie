@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import { HiStar } from 'react-icons/hi'
 import CountUp from 'react-countup'
@@ -12,7 +12,7 @@ interface MovieProps {
   id: number
 }
 
-const Movies = ({ movie, filter }: { movie: MovieProps; filter: string }) => {
+const Movies = ({ movie }: { movie: MovieProps }) => {
   const [favorited, setFavorited] = useState<boolean>(false)
 
   const longDate = (date: any) => {
@@ -24,9 +24,9 @@ const Movies = ({ movie, filter }: { movie: MovieProps; filter: string }) => {
     return `${month} ${day}, ${year}`
   }
 
-  favorited
-    ? console.log('Favorited: ' + movie.id)
-    : console.log('Unfavorited: ' + movie.id)
+  useEffect(() => {
+    favorited ? localStorage.setItem(`${movie.id}`, JSON.stringify(movie.id)) : localStorage.removeItem(`${movie.id}`)
+  }, [favorited])
 
   return (
     <div
@@ -34,7 +34,7 @@ const Movies = ({ movie, filter }: { movie: MovieProps; filter: string }) => {
     >
       <div>
         <img
-          className="w-80 rounded-lg brightness-110 shadow-sm group-hover:cursor-pointer group-hover:brightness-125 transition-all"
+          className="w-80 rounded-lg shadow-sm brightness-110 transition-all group-hover:cursor-pointer group-hover:brightness-125"
           src={
             movie.backdrop_path
               ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
