@@ -20,7 +20,7 @@ const Search = ({ handleSearch, query, setQuery }: SearchProps) => {
             onChange={(e) => setQuery(e.target.value)}
           />
         </form>
-        <HiStar className="absolute right-0 mr-8 h-7 w-7 text-white transition-all delay-150 hover:cursor-pointer hover:text-amber-400" />
+        <HiStar className="absolute right-0 mr-8 h-7 w-7 text-white hover:cursor-pointer hover:text-amber-400 transition-all delay-150" />
       </div>
     </div>
   )

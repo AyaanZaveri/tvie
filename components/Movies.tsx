@@ -25,12 +25,15 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
   }
 
   useEffect(() => {
-    favorited ? localStorage.setItem(`${movie.id}`, JSON.stringify(movie.id)) : localStorage.removeItem(`${movie.id}`)
+    favorited
+      ? localStorage.setItem(`${movie.id}`, JSON.stringify(movie.id))
+      : localStorage.removeItem(`${movie.id}`)
   }, [favorited])
 
   return (
     <div
       className={`group relative rounded-lg shadow-2xl backdrop-brightness-0`}
+      onClick={() => (window.location.href = `/movie/${movie.id}`)}
     >
       <div>
         <img
