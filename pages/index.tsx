@@ -43,8 +43,8 @@ const Home = () => {
 
   return (
     <div className="flex flex-row pb-12">
-      <Sidebar />
-      <div className='flex flex-col ml-72'>
+      {/* <Sidebar /> */}
+      <div className='flex flex-col'>
         <div className="mt-24 flex flex-col items-center justify-center md:items-start md:justify-start">
         <Search handleSearch={handleSearch} query={query} setQuery={setQuery} />
           {/* <span className='text-white font-bold text-5xl'>ToVi</span> */}
