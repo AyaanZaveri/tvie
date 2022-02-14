@@ -25,12 +25,12 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
   }
 
   const handleFavorite = () => {
-    setFavorited(!favorited)
-
     if (favorited) {
       localStorage.removeItem(movie.id.toString())
+      setFavorited(false)
     } else {
       localStorage.setItem(movie.id.toString(), movie.id.toString())
+      setFavorited(true)
     }
   }
 
