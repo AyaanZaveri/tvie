@@ -25,9 +25,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
   }
 
   useEffect(() => {
-    favorited
-      ? localStorage.setItem(`${movie.id}`, JSON.stringify(movie.id))
-      : localStorage.removeItem(`${movie.id}`)
+    favorited ? localStorage.setItem(movie.id.toString(), 'true') : localStorage.removeItem(movie.id.toString())
   }, [favorited])
 
   return (
@@ -54,7 +52,12 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
         </div>
         <div className="absolute bottom-0 left-0 flex w-full flex-row justify-between rounded-lg bg-slate-50 bg-opacity-10 py-3 px-4 shadow-2xl backdrop-blur transition-all group-hover:py-4">
           <div className="flex flex-col">
-            <span className="font-medium text-slate-200 hover:underline cursor-pointer transition-all" onClick={() => (window.location.href = `/movie/${movie.id}`)}>{movie.title}</span>
+            <span
+              className="cursor-pointer font-medium text-slate-200 transition-all hover:underline"
+              onClick={() => (window.location.href = `/movie/${movie.id}`)}
+            >
+              {movie.title}
+            </span>
             <span className="text-sm font-light text-slate-300">
               {longDate(movie.release_date)}
             </span>
