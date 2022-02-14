@@ -1,8 +1,12 @@
 import React from 'react'
+import Movies from '../components/Movies'
 
-const Favorites = () => {
+const Favorites = ({}) => {
+
   return (
-    <div></div>
+    <div>
+      <Movies movie={movies} />
+    </div>
   )
 }
 

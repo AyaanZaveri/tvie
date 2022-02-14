@@ -33,7 +33,6 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
   return (
     <div
       className={`group relative rounded-lg shadow-2xl backdrop-brightness-0`}
-      onClick={() => (window.location.href = `/movie/${movie.id}`)}
     >
       <div>
         <img
@@ -43,6 +42,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
               ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
               : 'https://via.placeholder.com/1280x720'
           }
+          onClick={() => (window.location.href = `/movie/${movie.id}`)}
         />
         <div
           onClick={() => setFavorited(!favorited)}
@@ -54,7 +54,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
         </div>
         <div className="absolute bottom-0 left-0 flex w-full flex-row justify-between rounded-lg bg-slate-50 bg-opacity-10 py-3 px-4 shadow-2xl backdrop-blur transition-all group-hover:py-4">
           <div className="flex flex-col">
-            <span className="font-medium text-slate-200">{movie.title}</span>
+            <span className="font-medium text-slate-200 hover:underline cursor-pointer transition-all" onClick={() => (window.location.href = `/movie/${movie.id}`)}>{movie.title}</span>
             <span className="text-sm font-light text-slate-300">
               {longDate(movie.release_date)}
             </span>
