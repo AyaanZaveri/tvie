@@ -24,9 +24,23 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
     return `${month} ${day}, ${year}`
   }
 
-  useEffect(() => {
-    favorited ? localStorage.setItem(movie.id.toString(), 'true') : localStorage.removeItem(movie.id.toString())
-  }, [favorited])
+  const handleFavorite = () => {
+    console.log(favorited)
+    setFavorited(!favorited)
+    console.log(favorited)
+    // favorited
+    //   ? localStorage.removeItem(movie.id.toString())
+    //   : localStorage.setItem(movie.id.toString(), movie.id.toString())
+
+    if (favorited) {
+      console.log(favorited)
+      localStorage.removeItem(movie.id.toString())
+      console.log(favorited)
+    } else {
+      localStorage.setItem(movie.id.toString(), movie.id.toString())
+    }
+    console.log(favorited)
+  }
 
   return (
     <div
@@ -43,7 +57,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
           onClick={() => (window.location.href = `/movie/${movie.id}`)}
         />
         <div
-          onClick={() => setFavorited(!favorited)}
+          onClick={handleFavorite}
           className={`absolute top-0 right-0 m-1 rounded-lg p-2 ${
             favorited ? 'text-amber-400' : 'text-slate-100'
           } backdrop-blur transition-colors delay-150 hover:cursor-pointer hover:text-amber-400`}
