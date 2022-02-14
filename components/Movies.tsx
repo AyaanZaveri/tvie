@@ -26,7 +26,6 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
 
   const handleFavorite = () => {
     setFavorited(!favorited)
-    console.log(favorited)
 
     if (favorited) {
       localStorage.removeItem(movie.id.toString())
