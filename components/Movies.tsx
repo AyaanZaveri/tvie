@@ -25,22 +25,23 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
   }
 
   const handleFavorite = () => {
-    console.log(favorited)
     setFavorited(!favorited)
     console.log(favorited)
-    // favorited
-    //   ? localStorage.removeItem(movie.id.toString())
-    //   : localStorage.setItem(movie.id.toString(), movie.id.toString())
 
     if (favorited) {
-      console.log(favorited)
       localStorage.removeItem(movie.id.toString())
-      console.log(favorited)
     } else {
       localStorage.setItem(movie.id.toString(), movie.id.toString())
     }
-    console.log(favorited)
   }
+
+  useEffect(() => {
+    if (localStorage.getItem(movie.id.toString())) {
+      setFavorited(true)
+    } else {
+      setFavorited(false)
+    }
+  }, [])
 
   return (
     <div
