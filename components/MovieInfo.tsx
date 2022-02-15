@@ -1,6 +1,15 @@
 import React from 'react'
 
-const MovieInfo = () => {
+interface MovieInfoProps {
+  title: string
+  backdrop_path: string
+  original_language: string
+  release_date: string
+  vote_average: number
+  id: number
+}
+
+const MovieInfo = ({movieData} : {movieData: MovieInfoProps}) => {
   return (
     <div>MovieInfo</div>
   )
