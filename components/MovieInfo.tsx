@@ -48,13 +48,13 @@ const MovieInfo = ({ movieData, castData }: Props) => {
           </div>
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
           <div>
-            {castData
-              ? castData.map((member: any) => (
-                  <div>
-                    <span className='text-white'>{member.name}</span>
-                  </div>
-                ))
-              : null}
+            <div className="flex w-24 flex-row">
+              {castData
+                ? castData.map((member: any) => (
+                    <span className="text-white">{member.name}</span>
+                  ))
+                : null}
+            </div>
           </div>
         </div>
       </div>
