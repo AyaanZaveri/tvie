@@ -51,7 +51,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             {castData
               ? castData.map((member: any) => (
                   <div>
-                    <span>{member.name}</span>
+                    <span className='text-white'>{member.name}</span>
                   </div>
                 ))
               : null}
