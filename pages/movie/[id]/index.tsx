@@ -1,10 +1,11 @@
 import React from 'react'
 import axios from 'axios'
 import Movies from '../../../components/Movies'
+import MovieInfo from '../../../components/MovieInfo'
 
 const MovieIndex = ({movieData} : {movieData:any}) => {
   return (
-    <div className='w-80'><Movies movie={movieData} /></div>
+    <div><MovieInfo movieData={movieData} /></div>
   )
 }
 
