@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const MovieIndex = ({data} : {data:any}) => {
   return (
-    <div></div>
+    <div>{JSON.stringify(data)}</div>
   )
 }
 
