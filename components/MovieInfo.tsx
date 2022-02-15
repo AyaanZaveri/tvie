@@ -7,12 +7,13 @@ interface MovieInfoProps {
   original_language: string
   release_date: string
   vote_average: number
-  id: number
+  id: number,
+  overview: string
 }
 
 const MovieInfo = ({ movieData }: { movieData: MovieInfoProps }) => {
   return (
-    <div className="mr-96 flex h-screen flex-wrap items-center justify-center">
+    <div className="flex h-screen flex-wrap items-center justify-center">
       <div className="flex flex-row items-start gap-5">
         <img
           className="w-64 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
@@ -31,6 +32,7 @@ const MovieInfo = ({ movieData }: { movieData: MovieInfoProps }) => {
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
           </div>
+          <span className='w-[48rem] text-slate-100'>{movieData.overview}</span>
         </div>
       </div>
     </div>
