@@ -4,7 +4,7 @@ import Movies from '../../../components/Movies'
 
 const MovieIndex = ({movieData} : {movieData:any}) => {
   return (
-    <div><Movies movie={movieData} /></div>
+    <div className='w-80'><Movies movie={movieData} /></div>
   )
 }
 
