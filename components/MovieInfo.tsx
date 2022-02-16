@@ -26,6 +26,8 @@ interface Props {
 const MovieInfo = ({ movieData, castData }: Props) => {
   console.log(castData)
 
+  const slicedCastData = castData.slice(0, 5)
+
   return (
     <div className="flex h-screen flex-wrap items-center justify-center">
       <div className="flex flex-row items-start gap-5">
@@ -48,10 +50,36 @@ const MovieInfo = ({ movieData, castData }: Props) => {
           </div>
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
           <div>
-            <div className="flex w-24 flex-row">
-              {castData
-                ? castData.map((member: any) => (
-                    <span className="text-white">{member.name}</span>
+            <div className="flex w-24 flex-row gap-3">
+              {slicedCastData
+                ? slicedCastData.map((member: any) => (
+                    <div>
+                      {/* <img
+                        src={`https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`}
+                        className="w-24 "
+                        alt=""
+                      />
+                      <span className="text-white">{member.name}</span> */}
+
+                      <div className="rounded-2xl bg-white p-4 shadow-lg dark:bg-gray-800">
+                        <div className="flex  flex-col items-center justify-center">
+                          <div className="flex-shrink-0">
+                            <a href="#" className="relative block">
+                              <img
+                                alt="profil"
+                                src={`https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`}
+                                className="mx-auto h-16 w-16 rounded-full object-cover "
+                              />
+                            </a>
+                          </div>
+                          <div className="mt-2 flex flex-col text-center">
+                            <span className="text-lg font-medium text-gray-600 dark:text-white">
+                              {member.name}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   ))
                 : null}
             </div>
