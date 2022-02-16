@@ -26,7 +26,13 @@ interface PersonMovieInfoProps {
   cast: MovieProps[]
 }
 
-const PersonInfo = ({ personData, personMovieData }: {personData: PersonInfoProps, personMovieData: PersonMovieInfoProps}) => {
+const PersonInfo = ({
+  personData,
+  personMovieData,
+}: {
+  personData: PersonInfoProps
+  personMovieData: PersonMovieInfoProps
+}) => {
   console.log(personMovieData)
   return (
     <div className="flex h-screen flex-wrap justify-start">
@@ -64,7 +70,9 @@ const PersonInfo = ({ personData, personMovieData }: {personData: PersonInfoProp
           </div>
 
           {personMovieData.cast.map((movieData: MovieProps) => (
-            <Movies movie={movieData} />
+            <div className='w-80'>
+              <Movies movie={movieData} />
+            </div>
           ))}
         </div>
       </div>
