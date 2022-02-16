@@ -34,6 +34,14 @@ const PersonInfo = ({
   personMovieData: PersonMovieInfoProps
 }) => {
   console.log(personMovieData)
+
+  // Sorting movies by popularity
+  personMovieData.cast.sort((a: any, b: any) => b.popularity - a.popularity)
+
+  const slicedCastData = personMovieData.cast.slice(0, 10)
+
+  console.log(personMovieData)
+
   return (
     <div className="flex h-screen flex-wrap justify-start">
       <a href="/">
@@ -69,11 +77,14 @@ const PersonInfo = ({
             </div>
           </div>
 
-          {personMovieData.cast.map((movieData: MovieProps) => (
-            <div className='w-80'>
-              <Movies movie={movieData} />
-            </div>
-          ))}
+          <span className="text-2xl font-bold text-slate-100">Popular Movies</span>
+          <div className='flex flex-row gap-5 flex-wrap'>
+            {slicedCastData.map((movieData: MovieProps) => (
+              <div className="w-80 ">
+                <Movies movie={movieData} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
