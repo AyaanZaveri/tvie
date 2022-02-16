@@ -107,10 +107,10 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </span>
 
               <div className="flex flex-col gap-3">
-                <span className="font-semibold text-slate-100">
+                <span className="font-bold text-slate-100">
                   Revenue: <span className='font-normal'>${numberWithCommas(movieData.revenue)} USD</span>
                 </span>
-                <span className="font-semibold text-slate-100">
+                <span className="font-bold text-slate-100">
                   Release Date: <span className='font-normal'>{(movieData.release_date)}</span>
                 </span>
               </div>
