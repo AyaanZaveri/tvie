@@ -49,15 +49,21 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
             <span className="w-10">
-              <a target="_blank" href={`https://www.imdb.com/title/${movieData.imdb_id}/`}>
+              <a
+                target="_blank"
+                href={`https://www.imdb.com/title/${movieData.imdb_id}/`}
+              >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
                   alt=""
+                  className='hover:brightness-110 transition-all'
                 />
               </a>
             </span>
           </div>
-          <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
+          <div className='w-9/12'>
+            <span className="w-full text-slate-100">{movieData.overview}</span>
+          </div>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
             <div className="flex flex-col gap-5">
@@ -69,7 +75,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                         className="h-12 w-12 rounded-full object-cover shadow-xl brightness-110 transition-all hover:brightness-125"
                         alt=""
                       />
-                      <div className="w-full ml-2 flex flex-col">
+                      <div className="ml-2 flex w-full flex-col">
                         <span className="text-sm font-semibold text-slate-100">
                           {member.name}
                         </span>
