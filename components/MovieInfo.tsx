@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CountUp from 'react-countup'
-import { HiStar } from 'react-icons/hi'
+import moment from 'moment'
 
 interface MovieInfoProps {
   title: string
@@ -37,8 +37,17 @@ const MovieInfo = ({ movieData, castData }: Props) => {
   }
 
   function numberWithCommas(value: number) {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
+
+  const longDate = (date: any) => {
+    var check = moment(date, 'YYYY/MM/DD')
+    var month = check.format('MMMM')
+    var day = check.format('D')
+    var year = check.format('YYYY')
+
+    return `${month} ${day}, ${year}`
+  }
 
   return (
     <div className="ml-24 flex h-screen flex-wrap justify-start">
@@ -85,7 +94,11 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                 ? slicedCastData.map((member: any) => (
                     <div className="flex w-full flex-row items-center justify-center break-words">
                       <img
-                        src={`https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`}
+                        src={
+                          member.profile_path
+                            ? `https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`
+                            : 'https://via.placeholder.com/150'
+                        }
                         className="h-12 w-12 rounded-full object-cover shadow-xl transition-all hover:brightness-125"
                         alt=""
                       />
@@ -108,10 +121,16 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
               <div className="flex flex-col gap-3">
                 <span className="font-bold text-slate-100">
-                  Revenue: <span className='font-normal'>${numberWithCommas(movieData.revenue)} USD</span>
+                  Revenue:{' '}
+                  <span className="font-normal">
+                    ${numberWithCommas(movieData.revenue)} USD
+                  </span>
                 </span>
                 <span className="font-bold text-slate-100">
-                  Release Date: <span className='font-normal'>{(movieData.release_date)}</span>
+                  Release Date:{' '}
+                  <span className="font-normal">
+                    {longDate(movieData.release_date)}
+                  </span>
                 </span>
               </div>
             </div>
