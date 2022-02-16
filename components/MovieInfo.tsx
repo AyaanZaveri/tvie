@@ -38,7 +38,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   return (
     <div className="flex h-screen flex-wrap justify-start ml-24">
-      <div className="flex flex-row items-center gap-8">
+      <div className="flex flex-row items-start gap-8 mt-16">
         <img
           className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
           src={
