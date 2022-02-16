@@ -58,7 +58,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </a>
             </span>
           </div>
-          <span className="w-[48rem] text-amber-200 italic">"{movieData.tagline}"</span>
+          <span className="w-[48rem] text-slate-00 italic">"{movieData.tagline}"</span>
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
@@ -75,7 +75,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                         <span className="text-sm font-semibold text-slate-100">
                           {member.name}
                         </span>
-                        <span className="rounded-b-lg text-sm text-amber-200">
+                        <span className="rounded-b-lg text-sm text-slate-300">
                           {member.character}
                         </span>
                       </div>
