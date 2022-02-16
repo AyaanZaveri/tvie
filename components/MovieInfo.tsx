@@ -16,7 +16,7 @@ interface MovieInfoProps {
   runtime: number
   revenue: number
   budget: number
-  genres: {name: string}[]
+  genres: { name: string }[]
 }
 
 interface CastInfoProps {
@@ -71,10 +71,10 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             <span className="text-4xl font-bold text-slate-100">
               {movieData.title}
             </span>
-            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 hover:bg-slate-200 hover:text-neutral-800 transition-all">
+            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
-            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 hover:bg-slate-200 hover:text-neutral-800 transition-all">
+            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
               {numToTime(movieData.runtime)} hours
             </span>
             <span className="w-10 transition-all hover:brightness-110">
@@ -89,12 +89,14 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </a>
             </span>
           </div>
-          <div className='flex flex-row gap-3'>
+          <div className="flex flex-row gap-3">
             <span className="italic text-slate-200">
               {movieData.tagline ? `"${movieData.tagline}"` : null}
             </span>
             {movieData.genres?.map((genreType) => (
-              <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 hover:bg-slate-200 hover:text-neutral-800 transition-all">{genreType.name}</span>
+              <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
+                {genreType.name}
+              </span>
             ))}
           </div>
           <span className="w-9/12 text-slate-100">{movieData.overview}</span>
