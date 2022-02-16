@@ -53,7 +53,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   return (
     <div className="flex h-screen flex-wrap justify-start">
-      <a href='/'><HiChevronLeft className='top-0 left-0 m-3 absolute text-white w-8 h-8' /></a>
+      <a href='/'><HiChevronLeft className='top-0 left-0 m-3 absolute text-slate-100 w-8 h-8 hover:text-slate-300 transition-all' /></a>
       <div className="ml-24 mt-16 flex flex-row items-start gap-8 pb-10">
         <img
           className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
