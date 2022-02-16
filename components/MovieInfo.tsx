@@ -31,14 +31,13 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   const slicedCastData = castData.slice(0, 5)
 
-  function convert(value:number) {
-    return Math.floor(value / 60) + ":" + (value % 60 ? value % 60 : '00')
+  function convert(value: number) {
+    return Math.floor(value / 60) + ':' + (value % 60 ? value % 60 : '00')
   }
 
-
   return (
-    <div className="flex h-screen flex-wrap justify-start ml-24">
-      <div className="flex flex-row items-start gap-8 mt-16">
+    <div className="ml-24 flex h-screen flex-wrap justify-start">
+      <div className="mt-16 flex flex-row items-start gap-8 pb-5">
         <img
           className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
           src={
@@ -56,7 +55,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
             <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
-            {convert(movieData.runtime)} hours
+              {convert(movieData.runtime)} hours
             </span>
             <span className="w-10 transition-all hover:brightness-110">
               <a
@@ -76,7 +75,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 mb-5">
               {slicedCastData
                 ? slicedCastData.map((member: any) => (
                     <div className="flex w-full flex-row items-center justify-center break-words">
@@ -96,6 +95,13 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                     </div>
                   ))
                 : null}
+            </div>
+
+            <span className="text-2xl font-bold text-slate-100">Information</span>
+            <div>
+              <div className="flex flex-col gap-5">
+
+              </div>
             </div>
           </div>
         </div>
