@@ -34,7 +34,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
     <div className="flex h-screen flex-wrap items-center justify-center">
       <div className="flex flex-row items-center gap-8">
         <img
-          className="w-64 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
+          className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
           src={
             movieData.poster_path
               ? `https://image.tmdb.org/t/p/w1280${movieData.poster_path}`
