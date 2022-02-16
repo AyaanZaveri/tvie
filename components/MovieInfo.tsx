@@ -58,37 +58,43 @@ const MovieInfo = ({ movieData, castData }: Props) => {
         <HiChevronLeft className="absolute top-0 left-0 m-3 h-8 w-8 text-slate-100 transition-all hover:text-slate-300" />
       </a>
       <div className="ml-24 mt-16 flex flex-row items-start gap-8 pb-10">
-        <img
-          className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
-          src={
-            movieData.poster_path
-              ? `https://image.tmdb.org/t/p/w1280${movieData.poster_path}`
-              : 'https://via.placeholder.com/1280x720'
-          }
-        />
+          <img
+            className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
+            src={
+              movieData.poster_path
+                ? `https://image.tmdb.org/t/p/w1280${movieData.poster_path}`
+                : 'https://via.placeholder.com/1280x720'
+            }
+          />
         <div className="flex flex-col gap-5">
           <div className="flex flex-row items-center gap-3">
             <span className="text-4xl font-bold text-slate-100">
               {movieData.title}
             </span>
-            <span className="h-min cursor-default rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
-              <CountUp end={movieData.vote_average} duration={1} decimals={1} />
-            </span>
-            <span className="h-min cursor-default rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
-              {numToTime(movieData.runtime)} hours
-            </span>
-            <span className="w-10 transition-all hover:brightness-110 cursor-pointer">
-              <a
-                target="_blank"
-                href={`https://www.imdb.com/title/${movieData.imdb_id}/`}
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
-                  alt=""
-                  className="transition-all hover:brightness-110"
+            <div className="flex items-center gap-3">
+              <span className="h-min cursor-default rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
+                <CountUp
+                  end={movieData.vote_average}
+                  duration={1}
+                  decimals={1}
                 />
-              </a>
-            </span>
+              </span>
+              <span className="h-min cursor-default rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
+                {numToTime(movieData.runtime)} hours
+              </span>
+              <span className="w-10 cursor-pointer transition-all hover:brightness-110">
+                <a
+                  target="_blank"
+                  href={`https://www.imdb.com/title/${movieData.imdb_id}/`}
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
+                    alt=""
+                    className="transition-all hover:brightness-110"
+                  />
+                </a>
+              </span>
+            </div>
           </div>
           <div className="flex flex-row gap-3">
             <span className="italic text-slate-200">
