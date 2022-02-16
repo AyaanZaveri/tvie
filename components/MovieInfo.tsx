@@ -11,6 +11,7 @@ interface MovieInfoProps {
   id: number
   overview: string
   imdb_id: string
+  tagline: string
 }
 
 interface CastInfoProps {
@@ -31,7 +32,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   return (
     <div className="flex h-screen flex-wrap items-center justify-center">
-      <div className="flex flex-row items-start gap-5">
+      <div className="flex flex-row items-center gap-8">
         <img
           className="w-64 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
           src={
@@ -42,7 +43,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
         />
         <div className="flex flex-col gap-5">
           <div className="flex flex-row items-center gap-3">
-            <span className="text-3xl font-bold text-slate-100">
+            <span className="text-4xl font-bold text-slate-100">
               {movieData.title}
             </span>
             <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
@@ -57,6 +58,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </a>
             </span>
           </div>
+          <span className="w-[48rem] text-slate-100 italic">"{movieData.tagline}"</span>
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
