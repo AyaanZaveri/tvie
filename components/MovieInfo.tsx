@@ -23,6 +23,7 @@ interface CastInfoProps {
   name: string
   character: string
   profile_path: string
+  id: number
 }
 
 interface Props {
@@ -58,14 +59,14 @@ const MovieInfo = ({ movieData, castData }: Props) => {
         <HiChevronLeft className="absolute top-0 left-0 m-3 h-8 w-8 text-slate-100 transition-all hover:text-slate-300" />
       </a>
       <div className="ml-24 mt-16 flex flex-row items-start gap-8 pb-10">
-          <img
-            className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
-            src={
-              movieData.poster_path
-                ? `https://image.tmdb.org/t/p/w1280${movieData.poster_path}`
-                : 'https://via.placeholder.com/1280x720'
-            }
-          />
+        <img
+          className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
+          src={
+            movieData.poster_path
+              ? `https://image.tmdb.org/t/p/w1280${movieData.poster_path}`
+              : 'https://via.placeholder.com/1280x720'
+          }
+        />
         <div className="flex flex-col gap-5">
           <div className="flex flex-row items-center gap-3">
             <span className="text-4xl font-bold text-slate-100">
@@ -113,17 +114,19 @@ const MovieInfo = ({ movieData, castData }: Props) => {
           <div>
             <div className="mb-5 flex flex-col gap-5">
               {slicedCastData
-                ? slicedCastData.map((member: any) => (
+                ? slicedCastData.map((member: CastInfoProps) => (
                     <div className="flex w-full flex-row items-center justify-center break-words">
-                      <img
-                        src={
-                          member.profile_path
-                            ? `https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`
-                            : 'https://via.placeholder.com/150'
-                        }
-                        className="h-12 w-12 rounded-full object-cover shadow-xl transition-all hover:brightness-125"
-                        alt=""
-                      />
+                      <a href={`/person/${member.id}`}>
+                        <img
+                          src={
+                            member.profile_path
+                              ? `https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`
+                              : 'https://via.placeholder.com/150'
+                          }
+                          className="h-12 w-12 rounded-full object-cover shadow-xl transition-all hover:brightness-125"
+                          alt=""
+                        />
+                      </a>
                       <div className="ml-2 flex w-full flex-col">
                         <span className="text-sm font-semibold text-slate-100">
                           {member.name}

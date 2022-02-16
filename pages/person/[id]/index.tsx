@@ -1,10 +1,11 @@
 import React from 'react'
 import axios from 'axios'
+import PersonInfo from '../../../components/PersonInfo'
 
 const PersonIndex = ({ personData }: { personData: any}) => {
   return (
     <div>
-      <PersonInfo movieData={personData}/>
+      <PersonInfo personData={personData}/>
     </div>
   )
 }
