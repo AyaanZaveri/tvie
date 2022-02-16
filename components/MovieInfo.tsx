@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import moment from 'moment'
-import { HiChevronDown } from 'react-icons/hi'
+import { HiChevronLeft } from 'react-icons/hi'
 
 interface MovieInfoProps {
   title: string
@@ -52,8 +52,9 @@ const MovieInfo = ({ movieData, castData }: Props) => {
   }
 
   return (
-    <div className="ml-24 flex h-screen flex-wrap justify-start">
-      <div className="mt-16 flex flex-row items-start gap-8 pb-10">
+    <div className="flex h-screen flex-wrap justify-start">
+      <HiChevronLeft className='top-0 left-0 m-5 text-white w-8 h-8' />
+      <div className="ml-24 mt-16 flex flex-row items-start gap-8 pb-10">
         <img
           className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
           src={
