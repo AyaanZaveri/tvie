@@ -1,7 +1,9 @@
-import React from 'react'
-import Movies from '../components/Movies'
+import React, { useEffect, useState } from 'react'
+import Movies from "../components/Movies"
 
-const Favorites = ({}) => {
+const favorites = () => {
+
+  const [data, setData] = useState<any>()
 
   return (
     <div>
@@ -10,4 +12,4 @@ const Favorites = ({}) => {
   )
 }
 
-export default Favorites
+export default favorites
