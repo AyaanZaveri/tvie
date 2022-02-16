@@ -128,9 +128,11 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                         />
                       </a>
                       <div className="ml-2 flex w-full flex-col">
-                        <span className="text-sm font-semibold text-slate-100">
-                          {member.name}
-                        </span>
+                        <a href={`/person/${member.id}`}>
+                          <span className="cursor-pointer text-sm font-semibold text-slate-100 hover:underline">
+                            {member.name}
+                          </span>
+                        </a>
                         <span className="rounded-b-lg text-sm text-slate-300">
                           {member.character}
                         </span>
