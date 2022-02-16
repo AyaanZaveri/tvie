@@ -48,7 +48,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
-            <span className="w-10">
+            <span className="w-10 hover:brightness-110 transition-all">
               <a target="_blank" href={`https://www.imdb.com/title/${movieData.imdb_id}/`}>
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
@@ -63,10 +63,10 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             <div className="flex flex-col gap-5">
               {slicedCastData
                 ? slicedCastData.map((member: any) => (
-                    <div className="flex w-full flex-row items-center break-words">
+                    <div className="flex w-full flex-row items-center justify-center break-words">
                       <img
                         src={`https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`}
-                        className="h-12 w-12 rounded-full object-cover shadow-xl brightness-110 transition-all hover:brightness-125"
+                        className="h-12 w-12 rounded-full object-cover shadow-xl transition-all hover:brightness-125"
                         alt=""
                       />
                       <div className="w-full ml-2 flex flex-col">
