@@ -49,19 +49,25 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             </span>
           </div>
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
+          <span className='text-2xl font-bold text-slate-100'>Cast</span>
           <div>
-            <div className="flex flex-row space-x-8">
+            <div className="flex flex-col gap-5">
               {slicedCastData
                 ? slicedCastData.map((member: any) => (
-                    <div className='flex flex-col text-center flex-wrap break-words w-28'>
+                    <div className="flex w-full flex-row items-center break-words">
                       <img
                         src={`https://image.tmdb.org/t/p/w300_and_h300_bestv2${member.profile_path}`}
-                        className="h-28 w-28 rounded-t-lg object-cover"
+                        className="h-12 w-12 rounded-full object-cover shadow-xl"
                         alt=""
                       />
-                      <span className="bg-slate-100 p-1 rounded-b-lg text-sm text-neutral-800">
-                        {member.name}
-                      </span>
+                      <div className='flex flex-col w-fullm ml-2'>
+                        <span className="text-sm text-slate-100 font-semibold">
+                          {member.name}
+                        </span>
+                        <span className="rounded-b-lg text-sm text-slate-300">
+                          {member.character}
+                        </span>
+                      </div>
                     </div>
                   ))
                 : null}
