@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import moment from 'moment'
+import { HiChevronDown } from 'react-icons/hi'
 
 interface MovieInfoProps {
   title: string
@@ -14,6 +15,7 @@ interface MovieInfoProps {
   tagline: string
   runtime: number
   revenue: number
+  budget: number
 }
 
 interface CastInfoProps {
@@ -51,7 +53,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   return (
     <div className="ml-24 flex h-screen flex-wrap justify-start">
-      <div className="mt-16 flex flex-row items-start gap-8 pb-5">
+      <div className="mt-16 flex flex-row items-start gap-8 pb-10">
         <img
           className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
           src={
@@ -120,6 +122,12 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </span>
 
               <div className="flex flex-col gap-3">
+                <span className="font-bold text-slate-100">
+                  Budget:{' '}
+                  <span className="font-normal">
+                    ${numberWithCommas(movieData.budget)} USD
+                  </span>
+                </span>
                 <span className="font-bold text-slate-100">
                   Revenue:{' '}
                   <span className="font-normal">
