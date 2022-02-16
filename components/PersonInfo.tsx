@@ -40,8 +40,6 @@ const PersonInfo = ({
 
   const slicedCastData = personMovieData.cast.slice(0, 10)
 
-  console.log(personMovieData)
-
   return (
     <div className="flex h-screen flex-wrap justify-start">
       <a href="/">

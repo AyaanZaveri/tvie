@@ -32,7 +32,6 @@ interface Props {
 }
 
 const MovieInfo = ({ movieData, castData }: Props) => {
-  console.log(movieData)
 
   const slicedCastData = castData.slice(0, 5)
 
