@@ -71,17 +71,13 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             <span className="text-4xl font-bold text-slate-100">
               {movieData.title}
             </span>
-            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
+            <span className="h-min cursor-default rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
-<<<<<<< HEAD
-            <span className="w-10">
-=======
-            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
+            <span className="h-min cursor-default rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 transition-all hover:bg-slate-200 hover:text-neutral-800">
               {numToTime(movieData.runtime)} hours
             </span>
-            <span className="w-10 transition-all hover:brightness-110">
->>>>>>> 30e409076b72a2d4e9af73159b33294b1da9c15b
+            <span className="w-10 transition-all hover:brightness-110 cursor-pointer">
               <a
                 target="_blank"
                 href={`https://www.imdb.com/title/${movieData.imdb_id}/`}
@@ -89,16 +85,11 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
                   alt=""
-                  className='hover:brightness-110 transition-all'
+                  className="transition-all hover:brightness-110"
                 />
               </a>
             </span>
           </div>
-<<<<<<< HEAD
-          <div className='w-9/12'>
-            <span className="w-full text-slate-100">{movieData.overview}</span>
-          </div>
-=======
           <div className="flex flex-row gap-3">
             <span className="italic text-slate-200">
               {movieData.tagline ? `"${movieData.tagline}"` : null}
@@ -109,8 +100,9 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </span>
             ))}
           </div>
-          <span className="w-9/12 text-slate-100">{movieData.overview}</span>
->>>>>>> 30e409076b72a2d4e9af73159b33294b1da9c15b
+          <div className="w-9/12">
+            <span className="w-full text-slate-100">{movieData.overview}</span>
+          </div>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
             <div className="mb-5 flex flex-col gap-5">
@@ -139,11 +131,10 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                 : null}
             </div>
             <div className="flex flex-col gap-3">
-              <span className="text-2xl font-bold text-slate-100">
-                Information
-              </span>
-
               <div className="flex flex-col gap-3">
+                <span className="text-2xl font-bold text-slate-100">
+                  Information
+                </span>
                 <span className="font-bold text-slate-100">
                   Budget:{' '}
                   <span className="font-normal">
