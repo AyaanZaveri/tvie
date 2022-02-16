@@ -94,7 +94,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               {movieData.tagline ? `"${movieData.tagline}"` : null}
             </span>
             {movieData.genres?.map((genreType) => (
-              <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">{genreType.name}</span>
+              <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 hover:bg-slate-200 hover:text-neutral-800 transition-all">{genreType.name}</span>
             ))}
           </div>
           <span className="w-9/12 text-slate-100">{movieData.overview}</span>
