@@ -48,7 +48,7 @@ const Movies = ({ movie }: { movie: MovieProps }) => {
     >
       <div>
         <img
-          className="w-80 rounded-lg shadow-sm brightness-110 transition-all group-hover:cursor-pointer group-hover:brightness-125"
+          className="w-80 rounded-lg shadow-sm transition-all group-hover:cursor-pointer group-hover:brightness-110"
           src={
             movie.backdrop_path
               ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
