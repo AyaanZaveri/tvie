@@ -71,10 +71,10 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             <span className="text-4xl font-bold text-slate-100">
               {movieData.title}
             </span>
-            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
+            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 hover:bg-slate-200 hover:text-neutral-800 transition-all">
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
-            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
+            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300 hover:bg-slate-200 hover:text-neutral-800 transition-all">
               {numToTime(movieData.runtime)} hours
             </span>
             <span className="w-10 transition-all hover:brightness-110">
