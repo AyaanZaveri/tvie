@@ -13,6 +13,7 @@ interface MovieInfoProps {
   imdb_id: string
   tagline: string
   runtime: number
+  revenue: number
 }
 
 interface CastInfoProps {
@@ -31,9 +32,13 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   const slicedCastData = castData.slice(0, 5)
 
-  function convert(value: number) {
+  function numToTime(value: number) {
     return Math.floor(value / 60) + ':' + (value % 60 ? value % 60 : '00')
   }
+
+  function numberWithCommas(value: number) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
   return (
     <div className="ml-24 flex h-screen flex-wrap justify-start">
@@ -55,7 +60,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
             <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
-              {convert(movieData.runtime)} hours
+              {numToTime(movieData.runtime)} hours
             </span>
             <span className="w-10 transition-all hover:brightness-110">
               <a
@@ -75,7 +80,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
-            <div className="flex flex-col gap-5 mb-5">
+            <div className="mb-5 flex flex-col gap-5">
               {slicedCastData
                 ? slicedCastData.map((member: any) => (
                     <div className="flex w-full flex-row items-center justify-center break-words">
@@ -96,11 +101,18 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                   ))
                 : null}
             </div>
+            <div className="flex flex-col gap-3">
+              <span className="text-2xl font-bold text-slate-100">
+                Information
+              </span>
 
-            <span className="text-2xl font-bold text-slate-100">Information</span>
-            <div>
-              <div className="flex flex-col gap-5">
-
+              <div className="flex flex-col gap-3">
+                <span className="font-semibold text-slate-100">
+                  Revenue: <span className='font-normal'>${numberWithCommas(movieData.revenue)} USD</span>
+                </span>
+                <span className="font-semibold text-slate-100">
+                  Release Date: <span className='font-normal'>{(movieData.release_date)}</span>
+                </span>
               </div>
             </div>
           </div>
