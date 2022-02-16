@@ -16,6 +16,7 @@ interface MovieInfoProps {
   runtime: number
   revenue: number
   budget: number
+  genres: {name: string}[]
 }
 
 interface CastInfoProps {
@@ -53,7 +54,9 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   return (
     <div className="flex h-screen flex-wrap justify-start">
-      <a href='/'><HiChevronLeft className='top-0 left-0 m-3 absolute text-slate-100 w-8 h-8 hover:text-slate-300 transition-all' /></a>
+      <a href="/">
+        <HiChevronLeft className="absolute top-0 left-0 m-3 h-8 w-8 text-slate-100 transition-all hover:text-slate-300" />
+      </a>
       <div className="ml-24 mt-16 flex flex-row items-start gap-8 pb-10">
         <img
           className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
@@ -86,9 +89,14 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </a>
             </span>
           </div>
-          <span className="w-9/12 italic text-slate-200">
-            {movieData.tagline ? `"${movieData.tagline}"` : null}
-          </span>
+          <div className='flex flex-row gap-3'>
+            <span className="italic text-slate-200">
+              {movieData.tagline ? `"${movieData.tagline}"` : null}
+            </span>
+            {movieData.genres?.map((genreType) => (
+              <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">{genreType.name}</span>
+            ))}
+          </div>
           <span className="w-9/12 text-slate-100">{movieData.overview}</span>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
