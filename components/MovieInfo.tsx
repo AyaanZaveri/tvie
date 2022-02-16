@@ -12,6 +12,7 @@ interface MovieInfoProps {
   overview: string
   imdb_id: string
   tagline: string
+  runtime: number
 }
 
 interface CastInfoProps {
@@ -30,8 +31,13 @@ const MovieInfo = ({ movieData, castData }: Props) => {
 
   const slicedCastData = castData.slice(0, 5)
 
+  function convert(value:number) {
+    return Math.floor(value / 60) + ":" + (value % 60 ? value % 60 : '00')
+  }
+
+
   return (
-    <div className="flex h-screen flex-wrap items-center justify-center">
+    <div className="flex h-screen flex-wrap justify-start ml-24">
       <div className="flex flex-row items-center gap-8">
         <img
           className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
@@ -49,8 +55,14 @@ const MovieInfo = ({ movieData, castData }: Props) => {
             <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
               <CountUp end={movieData.vote_average} duration={1} decimals={1} />
             </span>
-            <span className="w-10 hover:brightness-110 transition-all">
-              <a target="_blank" href={`https://www.imdb.com/title/${movieData.imdb_id}/`}>
+            <span className="h-min rounded-sm px-1.5 text-sm text-slate-200 ring-1 ring-slate-300">
+            {convert(movieData.runtime)} hours
+            </span>
+            <span className="w-10 transition-all hover:brightness-110">
+              <a
+                target="_blank"
+                href={`https://www.imdb.com/title/${movieData.imdb_id}/`}
+              >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
                   alt=""
@@ -58,7 +70,9 @@ const MovieInfo = ({ movieData, castData }: Props) => {
               </a>
             </span>
           </div>
-          <span className="w-[48rem] text-slate-200 italic">"{movieData.tagline}"</span>
+          <span className="w-[48rem] italic text-slate-200">
+            "{movieData.tagline}"
+          </span>
           <span className="w-[48rem] text-slate-100">{movieData.overview}</span>
           <span className="text-2xl font-bold text-slate-100">Cast</span>
           <div>
@@ -71,7 +85,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                         className="h-12 w-12 rounded-full object-cover shadow-xl transition-all hover:brightness-125"
                         alt=""
                       />
-                      <div className="w-full ml-2 flex flex-col">
+                      <div className="ml-2 flex w-full flex-col">
                         <span className="text-sm font-semibold text-slate-100">
                           {member.name}
                         </span>
