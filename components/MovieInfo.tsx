@@ -185,6 +185,7 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         title="Embedded youtube"
+                        className='rounded-lg shadow-2xl'
                       />
                     ))
                   : null}
