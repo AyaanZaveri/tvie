@@ -185,11 +185,12 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
                   ))
                 : null} */}
 
+<div>
               {videoData
                 ? videoData.results.map((video: any) => (
                     <iframe
-                      width="360"
-                      height="170"
+                      width="375"
+                      height="250"
                       src={`https://www.youtube.com/embed/${video.key}`}
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -198,6 +199,7 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
                     />
                   ))
                 : null}
+                </div>
             </div>
           </div>
         </div>
