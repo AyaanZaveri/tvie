@@ -170,36 +170,25 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
                 </span>
               </div>
             </div>
-            <div>
-              {/* {videoData
-                ? videoData.map((video: VideoInfoProps) => (
-                    <iframe
-                      width="853"
-                      height="480"
-                      src={`https://www.youtube.com/embed/${video.results.key}`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title="Embedded youtube"
-                    />
-                  ))
-                : null} */}
-
-<div>
-              {videoData
-                ? videoData.results.map((video: any) => (
-                    <iframe
-                      width="375"
-                      height="250"
-                      src={`https://www.youtube.com/embed/${video.key}`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title="Embedded youtube"
-                    />
-                  ))
-                : null}
-                </div>
+            <div className='mt-3 flex flex-col gap-3'>
+              <span className="text-2xl font-bold text-slate-100">
+                Trailers
+              </span>
+              <div className="flex flex-row flex-wrap gap-3">
+                {videoData
+                  ? videoData.results.map((video: any) => (
+                      <iframe
+                        width="375"
+                        height="250"
+                        src={`https://www.youtube.com/embed/${video.key}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title="Embedded youtube"
+                      />
+                    ))
+                  : null}
+              </div>
             </div>
           </div>
         </div>
