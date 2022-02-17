@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import moment from 'moment'
 import { HiChevronLeft } from 'react-icons/hi'
-import YouTube from 'react-youtube'
 
 interface MovieInfoProps {
   title: string
@@ -165,7 +164,7 @@ const MovieInfo = ({ movieData, castData }: Props) => {
                 </span>
               </div>
             </div>
-            //https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
           </div>
         </div>
       </div>
