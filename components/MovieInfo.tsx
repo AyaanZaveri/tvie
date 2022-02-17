@@ -174,7 +174,7 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
             </div>
             <div className="mt-3 flex flex-col gap-3">
               <span className="text-2xl font-bold text-slate-100">
-                Trailers
+                Trailers and Clips
               </span>
               <div className="flex flex-row flex-wrap gap-3">
                 {videoData
