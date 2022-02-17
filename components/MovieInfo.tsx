@@ -57,6 +57,8 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
     return `${month} ${day}, ${year}`
   }
 
+  const slicedVideoData = videoData.results.slice(0, 5)
+
   return (
     <div className="flex h-screen flex-wrap justify-start">
       <a href="/">
@@ -170,13 +172,13 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
                 </span>
               </div>
             </div>
-            <div className='mt-3 flex flex-col gap-3'>
+            <div className="mt-3 flex flex-col gap-3">
               <span className="text-2xl font-bold text-slate-100">
                 Trailers
               </span>
               <div className="flex flex-row flex-wrap gap-3">
                 {videoData
-                  ? videoData.results.map((video: any) => (
+                  ? slicedVideoData.map((video: any) => (
                       <iframe
                         width="375"
                         height="250"
@@ -185,7 +187,7 @@ const MovieInfo = ({ movieData, castData, videoData }: Props) => {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         title="Embedded youtube"
-                        className='rounded-lg shadow-2xl'
+                        className="rounded-lg shadow-2xl"
                       />
                     ))
                   : null}
