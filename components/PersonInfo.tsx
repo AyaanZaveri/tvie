@@ -47,7 +47,7 @@ const PersonInfo = ({
       </a>
       <div className="ml-24 mt-16 flex flex-row items-start gap-8 pb-10">
         <img
-          className="w-72 rounded-lg shadow-2xl brightness-110 transition-all hover:brightness-125"
+          className="w-72 rounded-lg shadow-2xl brightness-100 transition-all hover:brightness-110"
           src={
             personData.profile_path
               ? `https://image.tmdb.org/t/p/w1280${personData.profile_path}`
