@@ -63,7 +63,7 @@ const PersonInfo = ({
               <span className="w-10 cursor-pointer transition-all hover:brightness-110">
                 <a
                   target="_blank"
-                  href={`https://www.imdb.com/title/${personData.imdb_id}/`}
+                  href={`https://www.imdb.com/name/${personData.imdb_id}/`}
                 >
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
