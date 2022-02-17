@@ -75,13 +75,29 @@ const PersonInfo = ({
             </div>
           </div>
 
-          <span className="text-2xl font-bold text-slate-100">Popular Movies</span>
-          <div className='flex flex-row gap-5 flex-wrap'>
+          <span className="text-2xl font-bold text-slate-100">
+            Popular Movies
+          </span>
+          <div className="flex flex-row flex-wrap gap-5">
             {slicedCastData.map((movieData: MovieProps) => (
               <div className="w-80 ">
                 <Movies movie={movieData} />
               </div>
             ))}
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <span className="text-2xl font-bold text-slate-100">
+              Information
+            </span>
+            <span className="font-bold text-slate-100">
+              Birthday:{' '}
+              <span className="font-normal">{personData.birthday}</span>
+            </span>
+            <span className="font-bold text-slate-100">
+              Place of birth:{' '}
+              <span className="font-normal">{personData.place_of_birth}</span>
+            </span>
           </div>
         </div>
       </div>
